@@ -57,8 +57,8 @@ angular.module( 'ui.bootstrap.tooltip', [] )
         return {
           width: element.prop( 'offsetWidth' ),
           height: element.prop( 'offsetHeight' ),
-          top: boundingClientRect.top + $window.pageYOffset,
-          left: boundingClientRect.left + $window.pageXOffset
+          top: boundingClientRect.top +  ($window.pageYOffset || document.body.scrollTop ||  document.documentElement.scrollTop || 0),
+          left: boundingClientRect.left + ($window.pageXOffset || document.body.scrollLeft||  document.documentElement.scrollLeft || 0)
         };
       }
           
