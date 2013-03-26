@@ -1,8 +1,8 @@
 /*
 *
-*    Angular Bootstrap Carousel 
+*    AngularJS Bootstrap Carousel 
 *
-*      The carousel has all of the function that the original Bootstrap carousel has, except for animations.
+*      A pure AngularJS carousel.
 *      
 *      For no interval set the interval to non-number, or milliseconds of desired interval
 *      Template: <carousel interval="none"><slide>{{anything}}</slide></carousel>
@@ -83,6 +83,18 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
   $scope.prev = function() {
     var newIndex = currentIndex - 1 < 0 ? slides.length - 1 : currentIndex - 1;
     return self.select(slides[newIndex], 'prev');
+  };
+
+  $scope.select = function(slide) {
+    self.select(slide);
+  };
+
+  $scope.isActive = function(slide) {
+     return self.currentSlide === slide;
+  };
+
+  $scope.slides = function() {
+    return slides;
   };
 
   $scope.$watch('interval', restartTimer);

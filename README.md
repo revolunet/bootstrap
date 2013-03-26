@@ -4,6 +4,27 @@
 
 [![Build Status](https://secure.travis-ci.org/angular-ui/bootstrap.png)](http://travis-ci.org/angular-ui/bootstrap)
 
+## Demo
+
+Do you want to see directives in action? Visit http://angular-ui.github.com/bootstrap/!
+
+## Installation
+
+Installation is easy as angular-ui-bootstrap has minimal dependencies - only the AngularJS and Bootstrap's CSS are required.
+After downloading dependencies (or better yet, referencing them from your favourite CDN) you need to download build version of this project. All the files and their purposes are described here: 
+https://github.com/angular-ui/bootstrap/tree/gh-pages#build-files
+Don't worry, if you are not sure which file to take, opt for `ui-bootstrap-tpls-[version].min.js`.
+
+When you are done downloading all the dependencies and project files the only remaining part is to add dependencies on the `ui.bootstrap` AngularJS module:
+
+```javascript
+angular.module('myModule', ['ui.bootstrap']);
+```
+
+Project files are also available through your favourite package manager:
+* **Bower**: `bower install angular-bootstrap`
+* **NuGet**: https://nuget.org/packages/Angular.UI.Bootstrap/
+
 ## Project philosophy
 
 ### Native, lightweight directives
@@ -31,15 +52,17 @@ We are always looking for the quality contributions! Please check the [CONTRIBUT
 ### Development
 #### Prepare your environment
 * Install [Node.js](http://nodejs.org/) and NPM (should come with)
-* Install global dev dependencies: `npm install -g grunt testacular`
+* Install global dev dependencies: `npm install -g grunt-cli testacular`
 * Instal local dev dependencies: `npm install` while current directory is bootstrap repo
 
-#### Run unit tests
+#### Build
+* Build the whole project: `grunt` - this will run `lint`, `test`, and `concat` targets
+
+Check the Grunt build file for other tasks that are defined for this project
+
+#### TDD
 * Start testacular server: `grunt server`
 * Run test: `grunt test-run`
-
-#### Before commit
-* Build the whole project: `grunt` - this will run `lint`, `test`, and `concat` targets
 
 ### Release
 * Bump up version number in `package.json`
@@ -52,5 +75,6 @@ We are always looking for the quality contributions! Please check the [CONTRIBUT
 * push changes
 * switch back to the `main branch` and modify `package.json` to bump up version for the next iteration
 * commit (`chore(release): starting [versio number]`) and push
+* publish Bower and NuGet packages
 
 Well done! (If you don't like repeating yourself open a PR with a grunt task taking care of the above!)
